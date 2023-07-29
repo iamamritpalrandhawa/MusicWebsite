@@ -30,10 +30,6 @@
     {
        "src": "/",
       "build": "build/index.html"
-    },
-    {
-      "src": "/(.+)",
-      "dest": "build/$1"
     }
         
   ]
