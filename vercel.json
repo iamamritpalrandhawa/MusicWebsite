@@ -10,6 +10,10 @@
         }
     ],
     "routes": [
+         {
+            "src": "/",
+            "build": "build/index.html"
+        },
         {
             "src": "/(.*)",
             "dest": "index.js"
@@ -17,10 +21,7 @@
         {
             "src": "/(.+)",
             "dest": "build/$1"
-        },
-        {
-            "src": "/",
-            "build": "build/index.html"
         }
+       
     ]
 }
