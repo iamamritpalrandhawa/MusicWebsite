@@ -26,10 +26,13 @@
     {
       "src": "/albumid/(.*)",
       "dest": "/index.js"
-    },
-    {
-      "src": "/",
-      "dest": "build/index.html"
-    }
+    },{
+            "src": "/(.+)",
+            "dest": "build/$1"
+        },
+        {
+            "src": "/",
+            "build": "build/index.html"
+        }
   ]
 }
