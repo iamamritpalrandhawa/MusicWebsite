@@ -12,19 +12,19 @@
     ],
   "routes": [
     {
-      "src": "/id/:youtubeId",
+      "src": "/id/(.*)",
       "dest": "/index.js"
     },
     {
-      "src": "/name/:youtubename",
+      "src": "/name/(.*)",
       "dest": "/index.js"
     },
     {
-      "src": "/getalbums/:albumname",
+      "src": "/getalbums/(.*)",
       "dest": "/index.js"
     },
     {
-      "src": "/albumid/:albumId",
+      "src": "/albumid/(.*)",
       "dest": "/index.js"
     },
     {
