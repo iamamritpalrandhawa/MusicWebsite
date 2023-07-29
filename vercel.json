@@ -1,15 +1,15 @@
 {
   "version": 2,
   "builds": [
-        {
-            "src": "index.js",
-            "use": "@vercel/node"
-        },
-        {
-            "src": "build/**",
-            "use": "@vercel/static"
-        }
-    ],
+    {
+      "src": "index.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "build/**",
+      "use": "@vercel/static"
+    }
+  ],
   "routes": [
     {
       "src": "/id/:youtubeId",
@@ -29,11 +29,11 @@
     },
     {
       "src": "/",
-      "build": "build/index.html"
+      "handle": "build/index.html"
     },
     {
-      "src": "/(.+)",
-      "dest": "build/$1"
+      "src": "/(.*)",
+      "handle": "build/$1"
     }
   ]
 }
