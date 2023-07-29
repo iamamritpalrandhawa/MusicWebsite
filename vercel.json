@@ -21,15 +21,5 @@
       "src": "/(.*)",
       "dest": "build/index.html"
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/build/:file*",
-      "destination": "/build/:file*"
-    },
-    {
-      "source": "/:file*",
-      "destination": "/index.js"
-    }
   ]
 }
