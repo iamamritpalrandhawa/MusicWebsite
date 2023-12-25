@@ -43,7 +43,7 @@ router.post('/createuser', [
         const user = await Account.create({ username, email, password: hashedPassword });
 
         const data = { user: { id: user.id } };
-        const authtoken = jwt.sign(data, process.env.JWT_SECRET);
+        const authtoken = jwt.sign(data, "Amrit12");
         res.status(200).json({ success: true, authtoken });
     } catch (error) {
         console.log(error);
