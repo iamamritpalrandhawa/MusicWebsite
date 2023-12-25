@@ -12,23 +12,15 @@
   ],
   "routes": [
     {
-      "src": "/id/(.*)",
+      "src": "/songs/(.*)",
       "dest": "/index.js"
     },
     {
-      "src": "/name/(.*)",
+      "src": "/auth/(.*)",
       "dest": "/index.js"
     },
     {
-      "src": "/getalbums/(.*)",
-      "dest": "/index.js"
-    },
-    {
-      "src": "/albumid/(.*)",
-      "dest": "/index.js"
-    },
-    {
-      "src": "/musicplayer/(.*)",
+      "src": "/songs/musicplayer/(.*)",
       "dest": "/build/index.html"
     },
     {
