@@ -9,7 +9,7 @@ const connectionParams = {
 }
 const connectToMongo = async () => {
     try {
-        await mongoose.connect(mongoURL, connectionParams);
+        await mongoose.connect(mongoURL);
 
         console.log('Connection made successfully');
     } catch (error) {
