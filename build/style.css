@@ -523,7 +523,7 @@ nav {
 .modal-1 {
   display: none;
   position: fixed;
-  top: 79vh;
+  top: 70vh;
   left: 40vw;
   width: 70%;
   height: 100%;
@@ -844,7 +844,7 @@ p {
 
   .modal-1 {
     display: inline;
-    top: 79vh;
+    top: 70vh;
     left: 31vw;
   }
 
@@ -864,7 +864,7 @@ p {
     /* background-color: rgb(40 40 40); */
     padding: 10px 0px 10px 19px;
     position: absolute;
-    top: 32vh;
+    top: 16vh;
     left: 14vw;
     width: 71%;
     max-height: 335px;
@@ -1036,7 +1036,7 @@ p {
   }
 
   .modal-1 {
-    top: 80vh;
+    top: 70vh;
     left: 8vw;
     width: 86%;
   }
@@ -1096,7 +1096,7 @@ p {
   }
 
   .modal-1 {
-    top: 80vh;
+    top: 70vh;
     left: 8vw;
     width: 86%;
   }
