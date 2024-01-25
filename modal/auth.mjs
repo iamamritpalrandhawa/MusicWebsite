@@ -17,5 +17,4 @@ const Account = new mongoose.Schema({
 });
 
 const account = mongoose.model('Account', Account);
-// module.exports = account;
 export default account;
