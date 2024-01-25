@@ -20,6 +20,10 @@
       "dest": "/index.js"
     },
     {
+      "src": "/recentplayed/(.*)",
+      "dest": "/index.js"
+    },
+    {
       "src": "/songs/musicplayer/(.*)",
       "dest": "/build/index.html"
     },
