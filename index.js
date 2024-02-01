@@ -3,6 +3,7 @@ import cors from "cors";
 import songRouter from "./routes/songs.mjs";
 import authRouter from "./routes/auth.mjs";
 import recentPlayed from "./routes/recentplayed.mjs";
+import trending from "./routes/trending.mjs";
 import mongoconnect from './db.mjs';
 import { fileURLToPath } from "url";
 import path from "path";
@@ -17,6 +18,7 @@ server.use(express.static(path.join(__dirname, "build")));
 server.use("/auth", authRouter);
 server.use("/songs", songRouter);
 server.use("/recentplayed", recentPlayed);
+server.use("/", trending);
 server.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "build", "index.html"));
 });
