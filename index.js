@@ -18,7 +18,7 @@ server.use(express.static(path.join(__dirname, "build")));
 server.use("/auth", authRouter);
 server.use("/songs", songRouter);
 server.use("/recentplayed", recentPlayed);
-server.use("/", trending);
+server.use("/trends", trending);
 server.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "build", "index.html"));
 });
