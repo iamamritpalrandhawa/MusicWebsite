@@ -20,6 +20,10 @@
       "dest": "/index.js"
     },
     {
+      "src": "/trends/(.*)",
+      "dest": "/index.js"
+    },
+    {
       "src": "/recentplayed/(.*)",
       "dest": "/index.js"
     },
