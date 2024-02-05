@@ -13,6 +13,10 @@ const Account = new mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    recentSongsIds: {
+        type: Array,
+        required: true
     }
 });
 

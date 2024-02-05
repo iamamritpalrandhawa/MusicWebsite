@@ -1,5 +1,4 @@
 import express from "express";
-// import fetch from 'node-fetch'; // Import node-fetch for making HTTP requests
 import { getSuggestions } from "node-youtube-music";
 const router = express.Router();
 
@@ -46,5 +45,43 @@ router.get('/trending', async (req, res) => {
         res.status(500).json({ error: "Internal Server Error" });
     }
 });
+router.post("/getsuggestion", async (req, res) => {
+    try {
+        let userId = req.body.id;
+        const response = await fetch("https://sound-scribe.vercel.app/recentplayed/getrecents", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ id: userId }),
+        });
+        const json = await response.json();
+        const result1 = await Promise.all(json.map(async (element) => {
+            const suggestions = await getSuggestions(element.youtubeId);
+            return suggestions[1];
+        }));
+        const result2 = await Promise.all(json.map(async (element) => {
+            const suggestions = await getSuggestions(element.youtubeId);
+            return suggestions[2];
+        }));
+        result1.push(...result2);
+        const uniqueYouTubeIds = new Set();
+
+        // Filter out duplicate entries based on YouTube IDs
+        const uniqueSongs = result1.filter(song => {
+            if (uniqueYouTubeIds.has(song.youtubeId)) {
+                return false; // Skip if YouTube ID is already encountered
+            } else {
+                uniqueYouTubeIds.add(song.youtubeId); // Add the YouTube ID to the set
+                return true; // Include this song in the unique list
+            }
+        });
+        res.json(uniqueSongs);
+    } catch (error) {
+        res.status(500).json({ error: "Internal Server Error" });
+    }
+});
+
+
 
 export default router;

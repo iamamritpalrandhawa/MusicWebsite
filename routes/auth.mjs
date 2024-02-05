@@ -25,7 +25,7 @@ router.post('/createuser', [
         return res.status(400).json({ success, errors: errors.array() });
     }
     try {
-        const { username, email, password } = req.body;
+        const { username, email, password, recentSongsIds } = req.body;
 
         const existingUsername = await Account.findOne({ username });
         if (existingUsername) {
@@ -40,7 +40,7 @@ router.post('/createuser', [
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
 
-        const user = await Account.create({ username, email, password: hashedPassword });
+        const user = await Account.create({ username, email, password: hashedPassword, recentSongsIds: [recentSongsIds] });
 
         const data = { user: { id: user.id } };
         const authtoken = jwt.sign(data, process.env.JWT_SECRET);
@@ -66,7 +66,7 @@ router.post('/login', [
 
     try {
 
-        const { userId, password } = req.body;
+        const { userId, password, recentSongsIds } = req.body;
         let user = undefined;
 
         if (/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/.test(userId)) {
@@ -74,6 +74,11 @@ router.post('/login', [
         } else {
             user = await Account.findOne({ username: userId });
         }
+        user.recentSongsIds = user.recentSongsIds.filter((id) => id != null);
+        if (!user.recentSongsIds.includes(recentSongsIds)) {
+            user.recentSongsIds.push(recentSongsIds);
+        }
+        await user.save();
         if (!user) {
             return res.status(400).json({ error: "Please try to login with correct credentials" });
         }
@@ -88,6 +93,7 @@ router.post('/login', [
                 id: user.id
             }
         };
+
         const authtoken = jwt.sign(data, process.env.JWT_SECRET);
         success = true;
         res.json({ success, authtoken });
@@ -103,7 +109,7 @@ router.post('/getuser', fetchuser, async (req, res) => {
 
     try {
         const userId = req.user.id;
-        const user = await Account.findById(userId).select('username email -_id');
+        const user = await Account.findById(userId).select('username email recentSongsIds -_id');
         res.send(user);
     } catch (error) {
         console.error(error.message);
