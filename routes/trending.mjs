@@ -56,9 +56,6 @@ router.post("/getsuggestion", async (req, res) => {
             body: JSON.stringify({ id: userId }),
         });
         const json = await response.json();
-        if (json.length === 0) {
-            res.status(200).json([]);
-        }
         const result1 = await Promise.all(json.map(async (element) => {
             const suggestions = await getSuggestions(element.youtubeId);
             return suggestions[1];
@@ -81,7 +78,7 @@ router.post("/getsuggestion", async (req, res) => {
         });
         res.json(uniqueSongs);
     } catch (error) {
-        res.status(200).json([]);
+        res.status(500).json({ error: "Internal Server Error" });
     }
 });
 
