@@ -48,20 +48,15 @@ router.get('/trending', async (req, res) => {
 router.post("/getsuggestion", async (req, res) => {
     try {
         let userId = req.body.id;
-        let json = [];
-        try {
-            const response = await fetch("https://sound-scribe.vercel.app/recentplayed/getrecents", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ id: userId }),
-            });
-            json = await response.json();
-            if (json.length === 0) {
-                res.status(200).json([]);
-            }
-        } catch (error) {
+        const response = await fetch("https://sound-scribe.vercel.app/recentplayed/getrecents", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ id: userId }),
+        });
+        const json = await response.json();
+        if (json.length === 0) {
             res.status(200).json([]);
         }
         const result1 = await Promise.all(json.map(async (element) => {
@@ -86,7 +81,7 @@ router.post("/getsuggestion", async (req, res) => {
         });
         res.json(uniqueSongs);
     } catch (error) {
-        res.status(500).json({ error: "Internal Server Error" });
+        res.status(200).json([]);
     }
 });
 
