@@ -81,7 +81,42 @@ router.post("/getsuggestion", async (req, res) => {
         res.status(500).json({ error: "Internal Server Error" });
     }
 });
+async function getPlaylist(id) {
+    try {
+        const response = await fetch("https://sound-scribe.vercel.app/songs/getplaylist/" + id);
+        const data = await response.json();
+        return data[0];
+    } catch (error) {
+        console.error("Error fetching video:", error);
+        return null;
+    }
+}
+async function parsePlaylistIDs(data) {
+    try {
+        const item = data.contents.twoColumnBrowseResultsRenderer.tabs[0].tabRenderer.content.sectionListRenderer.contents[0].itemSectionRenderer.contents[0].shelfRenderer.content.horizontalListRenderer.items;
+        const videoIDs = await Promise.all(item.map(async (element) => {
+            // return await getPlaylist(element.compactStationRenderer.navigationEndpoint.watchPlaylistEndpoint.playlistId);
+            let item = await getPlaylist(element.compactStationRenderer.title.simpleText);
+            item.playlistId = element.compactStationRenderer.navigationEndpoint.watchPlaylistEndpoint.playlistId;
+            return item;
+        }));
+        return videoIDs;
+    } catch (error) {
+        console.error("Error parsing video IDs:", error);
+        return [];
+    }
+}
 
-
+router.get('/getTopPlaylist', async (req, res) => {
+    try {
+        const response = await fetch("https://www.youtube.com/channel/UC-9-kyTW8ZkZNDHQJ6FgpwQ");
+        const html = await response.text();
+        const data = JSON.parse(parseBetween(html, "var ytInitialData = ", ";</script><script nonce="));
+        const trending = await parsePlaylistIDs(data);
+        res.json(trending);
+    } catch (error) {
+        console.error("Error fetching trending videos:", error);
+    }
+});
 
 export default router;
