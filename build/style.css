@@ -380,6 +380,7 @@ nav {
   -webkit-appearance: none;
   outline: none;
   margin-top: 8px;
+  cursor: pointer;
 }
 
 .sound-time {
@@ -404,6 +405,7 @@ nav {
   font-size: 24px;
   /* color: #ffffff; */
   /* color: var(--nav-bg); */
+  cursor: pointer;
 }
 
 .sound-controls {
@@ -426,6 +428,7 @@ nav {
   border-radius: 10px;
   -webkit-appearance: none;
   outline: none;
+  cursor: pointer;
 }
 
 .queue {
