@@ -100,7 +100,7 @@ nav {
   /* background-color: var(--nav-bg); */
   display: flex;
   flex-direction: column;
-  margin-top: 8px;
+  margin-top: 0px;
   font-family: Heebo;
 }
 
@@ -157,7 +157,7 @@ nav {
   /* color: white; */
   /* color: var(--heading); */
   font-size: 36px;
-  margin-top: 25px;
+  margin-top: 20px;
   margin-left: 33px;
   font-family: Arimo;
 }
@@ -166,10 +166,10 @@ nav {
   width: 100%;
   display: flex;
   /* justify-content: space-between; */
-  min-height: 250px;
+  min-height: 225px;
   align-items: center;
   flex-wrap: wrap;
-  padding: 28px 6px;
+  padding: 0px 6px;
 }
 
 .item {
@@ -209,7 +209,7 @@ nav {
 .line {
   width: 95%;
   margin-left: 35px;
-  margin-top: 20px;
+  margin-top: 18px;
 }
 
 /* .song-container { */
@@ -225,6 +225,7 @@ nav {
   align-items: center;
   margin: 10px;
   padding: 10px;
+  min-height: 25vh;
   flex-wrap: wrap;
 }
 
@@ -253,6 +254,10 @@ nav {
 .song-item h3 {
   /* color: white; */
   /* color: var(--heading); */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 12rem;
   font-size: 18px;
   margin-left: 20px;
   font-weight: bold;
@@ -261,6 +266,7 @@ nav {
 
 .song-item img {
   width: 100%;
+  height: 250px;
   /* height: 66%; */
   border-radius: 19%;
   padding: 15px 0px;
@@ -275,6 +281,10 @@ nav {
 .song-item p {
   /* color: white; */
   /* color: var(--heading); */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 7rem;
   font-size: 13px;
   margin-left: 16px;
   margin-top: 0px;
@@ -488,6 +498,10 @@ nav {
 }
 
 .queue-item .song-details h3 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 8rem;
   margin: 0;
   font-size: 18px;
   color: white;
@@ -495,6 +509,10 @@ nav {
 }
 
 .queue-item .song-details p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 7rem;
   margin: 5px 0;
   font-size: 14px;
   color: #888;
@@ -926,6 +944,7 @@ p {
 @media screen and (max-width: 670px) {
   .container {
     width: 85%;
+    margin-bottom: 5px;
   }
 
   .song-item {
@@ -985,8 +1004,8 @@ p {
 
   #Greeting {
     font-size: 17px;
-    margin-top: 31px;
-    margin-left: 17px;
+    margin-top: 26px;
+    margin-left: 12px;
   }
 
   .item {
@@ -1072,6 +1091,9 @@ p {
 }
 
 @media screen and (max-width: 400px) {
+  .highlight {
+    font-size: 21px;
+  }
   .container {
     width: 89%;
   }
