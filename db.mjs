@@ -20,4 +20,3 @@ const connectToMongo = async () => {
 
 // module.exports = connectToMongo;
 export default connectToMongo;
-// tU7jEziHy0QzfytE
