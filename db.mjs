@@ -1,7 +1,9 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import mongoose from 'mongoose';
 // const mongoose = require('mongoose')
 // const mongoURL = 'mongodb://127.0.0.1:27017/MusicApp';
-const mongoURL = 'mongodb+srv://chatapp0321:tU7jEziHy0QzfytE@musicapp.isql17r.mongodb.net/MusicApp?retryWrites=true&w=majority';
+const mongoURL = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@musicapp.isql17r.mongodb.net/MusicApp?retryWrites=true&w=majority`;
 
 // const connectionParams = {
 //     useNewUrlParser: true,
