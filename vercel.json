@@ -36,6 +36,26 @@
       "dest": "build/index.html"
     },
     {
+      "src": "/search",
+      "dest": "build/index.html"
+    },
+    {
+      "src": "/playlist",
+      "dest": "build/index.html"
+    },
+    {
+      "src": "/profile",
+      "dest": "build/index.html"
+    },
+    {
+      "src": "/sign-up",
+      "dest": "build/index.html"
+    },
+    {
+      "src": "/sign-in",
+      "dest": "build/index.html"
+    },
+    {
       "src": "/(.+)",
       "dest": "build/$1"
     }
