@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
+/* https://zippystarter.com/tools/shadcn-ui-theme-generator */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 228 55% 95%;
+  --foreground: 228 5% 7%;
+  --card: 228 50% 90%;
+  --card-foreground: 228 5% 10%;
+  --popover: 228 55% 95%;
+  --popover-foreground: 228 95% 7%;
+  --primary: 228 93% 38%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 228 30% 70%;
+  --secondary-foreground: 0 0% 0%;
+  --muted: 190 30% 85%;
+  --muted-foreground: 228 5% 35%;
+  --accent: 190 30% 80%;
+  --accent-foreground: 228 5% 10%;
+  --destructive: 0 55% 30%;
+  --destructive-foreground: 228 5% 90%;
+  --border: 228 30% 50%;
+  --input: 228 30% 18%;
+  --ring: 228 93% 38%;
+  --radius: 0.5rem;
+}
+.dark {
+  --background: 228 50% 7%;
+  --foreground: 228 5% 90%;
+  --card: 228 50% 7%;
+  --card-foreground: 228 5% 90%;
+  --popover: 228 50% 5%;
+  --popover-foreground: 228 5% 90%;
+  --primary: 228 93% 38%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 228 30% 10%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 190 30% 15%;
+  --muted-foreground: 228 5% 60%;
+  --accent: 190 30% 15%;
+  --accent-foreground: 228 5% 90%;
+  --destructive: 0 55% 30%;
+  --destructive-foreground: 228 5% 90%;
+  --border: 228 30% 18%;
+  --input: 228 30% 18%;
+  --ring: 228 93% 38%;
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+body {
+  font-family: "DM Sans", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+    Arial, Helvetica, sans, sans-serif;
+}
+
+::selection {
+  @apply bg-primary text-primary-foreground;
+}

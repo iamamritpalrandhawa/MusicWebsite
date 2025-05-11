@@ -1,0 +1,71 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "app.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "dist/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/songs/(.*)",
+      "dest": "/app.js"
+    },
+    {
+      "src": "/auth/(.*)",
+      "dest": "/app.js"
+    },
+    {
+      "src": "/stream/(.*)",
+      "dest": "/app.js"
+    },
+    {
+      "src": "/recentplayed/(.*)",
+      "dest": "/app.js"
+    },
+    {
+      "src": "/songs/musicplayer/(.*)",
+      "dest": "/dist/index.html"
+    },
+    {
+      "src": "/",
+      "dest": "dist/index.html"
+    },
+    {
+      "src": "/album",
+      "dest": "dist/index.html"
+    },
+    {
+      "src": "/playlist",
+      "dest": "dist/index.html"
+    },
+    {
+      "src": "/artist",
+      "dest": "dist/index.html"
+    },
+    {
+      "src": "/profile",
+      "dest": "dist/index.html"
+    },
+    {
+      "src": "/search",
+      "dest": "dist/index.html"
+    },
+    {
+      "src": "/login",
+      "dest": "dist/index.html"
+    },
+    {
+      "src": "/signup",
+      "dest": "dist/index.html"
+    },
+    {
+      "src": "/(.+)",
+      "dest": "dist/$1"
+    }
+  ]
+}
